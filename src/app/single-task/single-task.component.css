@@ -1,0 +1,37 @@
+.task {
+  width: 100%;
+  display: flex;
+  border-bottom: 1px solid #f4f4f4;
+  padding: 10px 20px;
+  align-items: center;
+}
+
+.task__checkbox {
+  padding: 8px;
+  border: 1px solid #d3d3d3;
+  border-radius: 4px;
+  margin-right: 20px;
+  position: relative;
+}
+
+.task__checkbox::after {
+  content: "";
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  width: 75%;
+  height: 75%;
+  border-radius: 4px;
+  background-color: #508cfb;
+  transform: scale(0) translate(-50%, -50%);
+  transition: transform 0.2s ease;
+}
+
+.task__checkbox.active::after {
+  transform: scale(1) translate(-50%, -50%);
+}
+
+.task__label {
+  font-size: 18px;
+  font-weight: 500;
+}
