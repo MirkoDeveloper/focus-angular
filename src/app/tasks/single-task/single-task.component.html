@@ -5,4 +5,9 @@
     (click)="toggleTask()"
   ></div>
   <div class="task__label">{{ task.title }}</div>
+
+  <div class="task__commands">
+    <div class="task__edit">Edit</div>
+    <div class="task__trash" (click)="onDeleteTask()">Elimina</div>
+  </div>
 </div>

@@ -14,11 +14,30 @@ export class TasksService {
     { title: 'Deployare i commit', completed: false },
   ];
 
-  constructor() {}
+  private localStorageKey = 'tasks';
+
+  constructor() {
+    this.loadTasksFromLocalStorage();
+  }
+
+  // Metoto per caricare i task dal localstorage
+  private loadTasksFromLocalStorage() {
+    const storedTasks = localStorage.getItem(this.localStorageKey);
+    if (storedTasks) {
+      this.tasks = JSON.parse(storedTasks);
+      this.emitTasksChanged();
+    }
+  }
+
+  // Metodo per salvare i task
+  private saveTasksToLocalStorage(): void {
+    localStorage.setItem(this.localStorageKey, JSON.stringify(this.tasks));
+  }
 
   // Metodo per creare un nuovo task
   createTask(task: TaskInterface): void {
     this.tasks.push(task);
+    this.saveTasksToLocalStorage(); // Salva i tasks in localStorage
     this.emitTasksChanged();
   }
 
@@ -34,12 +53,15 @@ export class TasksService {
     if (index >= 0 && index < this.tasks.length) {
       this.tasks[index] = updatedTask;
       this.emitTasksChanged();
+      this.saveTasksToLocalStorage(); // Salva i tasks in localStorage
     }
   }
   // Metodo per eliminare un task
   deleteTask(index: number): void {
     if (index >= 0 && index < this.tasks.length) {
       this.tasks.splice(index, 1);
+      this.emitTasksChanged();
+      this.saveTasksToLocalStorage(); // Salva i tasks in localStorage
     }
   }
 
