@@ -1,0 +1,8 @@
+<div class="task">
+  <div
+    class="task__checkbox"
+    [ngClass]="{ completed: task.completed }"
+    (click)="toggleTask()"
+  ></div>
+  <div class="task__label">{{ task.title }}</div>
+</div>

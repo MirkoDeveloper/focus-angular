@@ -1,4 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+
+interface Task {
+  title: string;
+  completed: boolean;
+}
 
 @Component({
   selector: 'app-single-task',
@@ -6,9 +11,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./single-task.component.css'],
 })
 export class SingleTaskComponent {
+  @Input() task: any;
+
   active: boolean = false;
 
-  toggleActive() {
-    this.active = !this.active;
+  toggleTask() {
+    this.task.completed = !this.task.completed;
   }
 }

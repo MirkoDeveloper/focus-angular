@@ -12,6 +12,7 @@
   border-radius: 4px;
   margin-right: 20px;
   position: relative;
+  cursor: pointer;
 }
 
 .task__checkbox::after {
@@ -27,7 +28,7 @@
   transition: transform 0.2s ease;
 }
 
-.task__checkbox.active::after {
+.task__checkbox.completed::after {
   transform: scale(1) translate(-50%, -50%);
 }
 

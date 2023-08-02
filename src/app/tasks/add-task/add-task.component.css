@@ -1,0 +1,25 @@
+.form-task {
+  width: 100%;
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.form-task__add {
+  width: 100%;
+  outline: 0;
+  border: 2px solid #f4f4f4;
+  padding: 16px 24px;
+}
+
+.form-task__add::placeholder,
+.form-task__add {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.fomr-task__button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 20px;
+}
